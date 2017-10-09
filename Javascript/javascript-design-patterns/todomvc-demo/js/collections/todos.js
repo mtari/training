@@ -26,6 +26,11 @@ var app = app || {};
 			return this.where({completed: false});
 		},
 
+		// Filter down the list to only todo items that are prioritized.
+		priority: function () {
+			return this.where({priority: true});
+		},
+
 		// We keep the Todos in sequential order, despite being saved by unordered
 		// GUID in the database. This generates the next order number for new items.
 		nextOrder: function () {
