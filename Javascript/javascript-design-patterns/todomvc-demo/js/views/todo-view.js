@@ -22,6 +22,7 @@ var app = app || {};
 			'click .priority-btn': 'togglePriority',
 			'click .destroy': 'clear',
 			'click .edit-btn': 'edit',
+			'click .undo-btn': 'unarchive',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close'
@@ -51,7 +52,6 @@ var app = app || {};
 			}
 
 			this.$el.html(this.template(this.model.toJSON()));
-			// this.$el.value = "TEST";
 			this.$el.toggleClass('completed', this.model.get('completed'));
 			this.$el.toggleClass('priority', this.model.get('priority'));
 			this.toggleVisible();
@@ -64,18 +64,26 @@ var app = app || {};
 		},
 
 		isHidden: function () {
-			switch(app.TodoFilter) {
-				case 'active':
-					return (this.model.get('completed') == true) ? true : false;
-
-				case 'completed':
-					return (this.model.get('completed') == true) ? false : true;
-
-				case 'priority':
-					return (this.model.get('priority') == true) ? false : true;
-
-				default:
-					return false;
+			if(app.TodoFilter === 'active') {
+				if(this.model.get('archived') == true || this.model.get('completed') == true) return true;
+				else return false;
+			}
+			else if(app.TodoFilter === 'priority') {
+				if(this.model.get('priority') == true && this.model.get('completed') == false) return false;
+				else return true;
+			}
+			else if(app.TodoFilter === 'completed') {
+				if(this.model.get('completed') == true && this.model.get('archived') == false) return false;
+				else return true;
+			}
+			else if(app.TodoFilter === 'archived') {
+				if(this.model.get('archived') == true) return false;
+				else return true;
+			}
+			else
+			{
+				if(this.model.get('archived') == true) return true;
+				else return false;
 			}
 		},
 
@@ -86,8 +94,6 @@ var app = app || {};
 
 		// Toggle the `"priority"` state of the model.
 		togglePriority: function () {
-			// this.model.toggle();
-			console.log("togglePriority");
 			this.model.togglePriority();
 		},
 
@@ -95,6 +101,10 @@ var app = app || {};
 		edit: function () {
 			this.$el.addClass('editing');
 			this.$input.focus();
+		},
+
+		unarchive: function () {
+			this.model.toggleArchived();
 		},
 
 		// Close the `"editing"` mode, saving changes to the todo.

@@ -112,9 +112,17 @@ var app = app || {};
 			}
 		},
 
-		// Clear all completed todo items, destroying their models.
+		// Clear all completed todo items, archiving their models.
 		clearCompleted: function () {
-			_.invoke(app.todos.completed(), 'destroy');
+			app.todos.each(function (todo) {
+				if(todo.attributes.completed === true)
+				{
+					todo.save({
+						archived: true
+					});
+				}
+				
+			});
 			return false;
 		},
 

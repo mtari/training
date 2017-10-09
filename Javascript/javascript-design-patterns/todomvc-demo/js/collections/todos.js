@@ -18,7 +18,7 @@ var app = app || {};
 
 		// Filter down the list of all todo items that are finished.
 		completed: function () {
-			return this.where({completed: true});
+			return this.where({completed: true, archived: false});
 		},
 
 		// Filter down the list to only todo items that are still not finished.
@@ -29,6 +29,11 @@ var app = app || {};
 		// Filter down the list to only todo items that are prioritized.
 		priority: function () {
 			return this.where({priority: true});
+		},
+
+		// Filter down the list to only todo items that are prioritized.
+		archived: function () {
+			return this.where({archived: true});
 		},
 
 		// We keep the Todos in sequential order, despite being saved by unordered
