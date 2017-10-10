@@ -28,8 +28,8 @@
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
 				<label><%- title %><%= completed ? ' -- DONE' : '' %></label>
 				<% if (!completed && !archived) { %>
-				<button class="priority-btn"></button>
 				<button class="edit-btn"></button>
+				<input class="priority-input" type="number" value="<%= priority %>" min="0" max="5">
 				<% } %>
 				<% if (archived) { %>
 				<button class="undo-btn"></button>

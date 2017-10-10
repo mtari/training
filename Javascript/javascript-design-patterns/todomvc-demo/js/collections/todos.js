@@ -28,7 +28,7 @@ var app = app || {};
 
 		// Filter down the list to only todo items that are prioritized.
 		priority: function () {
-			return this.where({priority: true});
+			return this.where({priority: 0});
 		},
 
 		// Filter down the list to only todo items that are prioritized.
