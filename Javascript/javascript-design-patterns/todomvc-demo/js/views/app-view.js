@@ -31,6 +31,7 @@ var app = app || {};
 			this.allCheckbox = this.$('#toggle-all')[0];
 			this.$input = this.$('#new-todo');
 			this.$inputPriority = this.$('.new-priority-input');
+			this.$inputColor = this.$('.new-todo-color');
 			this.$footer = this.$('#footer');
 			this.$main = this.$('#main');
 			this.$list = $('#todo-list');
@@ -101,7 +102,8 @@ var app = app || {};
 				title: this.$input.val().trim(),
 				order: app.todos.nextOrder(),
 				completed: false,
-				priority: this.$inputPriority.val()
+				priority: this.$inputPriority.val(),
+				color: this.$inputColor.val()
 			};
 		},
 

@@ -2,5 +2,4 @@
 [X] Let users filet or sort by priority status
 [X] Expand the priority feature to have more than two levels
 [X] Let a user set the priority status when creating the todo item
-[] Add colors, so people can associate different todos with each other
-[] Add labels for sorting and filtering
+[X] Add colors, so people can associate different todos with each other

@@ -15,7 +15,8 @@ var app = app || {};
 			title: '',
 			completed: false,
 			priority: 0,
-			archived: false
+			archived: false,
+			color: 0
 		},
 
 		// Toggle the `completed` state of this todo item.
