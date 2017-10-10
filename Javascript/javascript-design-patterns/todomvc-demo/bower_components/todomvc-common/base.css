@@ -114,7 +114,7 @@ input[type="checkbox"] {
 .edit {
 	position: relative;
 	margin: 0;
-	width: 100%;
+	width: 90%;
 	font-size: 24px;
 	font-family: inherit;
 	line-height: 1.4em;
@@ -275,6 +275,7 @@ label[for='toggle-all'] {
 #todo-list li .edit-btn,
 #todo-list li .priority-btn,
 #todo-list li .priority-input,
+#todo-list li .new-priority-input,
 #todo-list li .undo-btn {
 	display: none;
 	position: absolute;
@@ -292,11 +293,11 @@ label[for='toggle-all'] {
 
 #todo-list li .priority-input {
 	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;	
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 
@@ -334,6 +335,7 @@ label[for='toggle-all'] {
 #todo-list li:hover .edit-btn,
 #todo-list li:hover .priority-btn,
 #todo-list li:hover .priority-input,
+#todo-list li:hover .new-priority-input,
 #todo-list li:hover .undo-btn {
 	display: block;
 }

@@ -27,7 +27,6 @@ var app = app || {};
 
 		// Toggle the `priority` state of this todo item.
 		setPriority: function (value) {
-			console.log("setPriority " + value);
 			this.save({
 				priority: value
 			});
