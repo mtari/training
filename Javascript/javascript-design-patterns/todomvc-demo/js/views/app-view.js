@@ -97,7 +97,6 @@ var app = app || {};
 
 		// Generate the attributes for a new Todo item.
 		newAttributes: function () {
-			console.log(this.$inputPriority.val());
 			return {
 				title: this.$input.val().trim(),
 				order: app.todos.nextOrder(),

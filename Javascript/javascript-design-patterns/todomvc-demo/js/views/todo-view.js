@@ -69,7 +69,7 @@ var app = app || {};
 				else return false;
 			}
 			else if(app.TodoFilter === 'priority') {
-				if(this.model.get('priority') == true && this.model.get('completed') == false) return false;
+				if(this.model.get('priority') > 0 && this.model.get('completed') == false) return false;
 				else return true;
 			}
 			else if(app.TodoFilter === 'completed') {

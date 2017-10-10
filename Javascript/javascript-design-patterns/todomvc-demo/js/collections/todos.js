@@ -27,11 +27,6 @@ var app = app || {};
 		},
 
 		// Filter down the list to only todo items that are prioritized.
-		priority: function () {
-			return this.where({priority: 0});
-		},
-
-		// Filter down the list to only todo items that are prioritized.
 		archived: function () {
 			return this.where({archived: true});
 		},
