@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="items-container">
+		<div class="col-md-12">
+			<h4>{{store.name}}</h4>
+			<p>We currently carry {{store.brickColors.length}} color choices!</p>
+		</div>
+
+		<div id="colorList" class="col-md-12">
+			<div ng-repeat="(groupKey, groupValue) in store.bricks" id="color-{{groupKey}}" class="col-md-12">
+				<p>{{groupKey}}</p>
+			  	<div ng-repeat="(brickKey, brickValue) in groupValue" class="brick-{{brickKey}} col-md-3 bordered" ng-class="{'low-stock': brickValue.quantity < 10, 'coming-soon': brickValue.quantity < 5}">
+			  		<p>Size: {{brickKey}}</p>
+			  		<p>Quantity: {{brickValue.quantity}}</p>
+			  		<p>Price: {{brickValue.price}}</p>
+			  		<button type="button" class="buyButton" ng-click="store.buy(brickValue)">Buy</button>
+			  		<button type="button" class="returnButton" ng-click="store.return(brickValue)">Return</button>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+</div>
