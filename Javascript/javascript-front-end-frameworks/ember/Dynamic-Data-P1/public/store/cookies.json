@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Chocolate Chip",
+		"count": "248",
+		"price": "$0.39",
+		"price_per_dozen": "$4.50"
+	},
+	{
+		"name": "Sugar",
+		"count": "182",
+		"price": "$0.30",
+		"price_per_dozen": "$3.35"
+	},
+	{
+		"name": "Oatmeal",
+		"count": "137",
+		"price": "$0.42",
+		"price_per_dozen": "$4.8"
+	},
+	{
+		"name": "Peanut Butter",
+		"count": "186",
+		"price": "$0.47",
+		"price_per_dozen": "$5.25"
+	},
+	{
+		"name": "Shortbread",
+		"count": "93",
+		"price": "$0.35",
+		"price_per_dozen": "$4.00"
+	}
+]

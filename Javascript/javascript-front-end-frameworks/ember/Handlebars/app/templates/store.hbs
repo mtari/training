@@ -1,0 +1,17 @@
+{{#each model as |item|}}
+	<div class="color-group {{item.color}}-bricks">
+		<h1>{{item.color}}</h1>
+
+		{{#each item.bricks as |brick|}}
+			<div>
+				<p class="brick-size">{{brick.size}}</p>
+				<p class="brick-quantity">{{brick.quantity}}</p>
+				{{#if item.onSale}}
+					<div class="on-sale"></div>
+			    {{/if}}
+			</div>
+		{{/each}}
+	</div>
+{{/each}}
+
+{{outlet}}
