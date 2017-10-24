@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ezelia pixi tutorial</title>    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="lib/pixi.dev.js"></script>
+    <script src="engine/ScenesManager.class.js"></script>
+    <script src="engine/Scene.class.js"></script>
+    <script src="game/GameScene.class.js"></script>
+    <script src="game/IntroScene.class.js"></script>
+    <script src="game/MenuScene.class.js"></script>
+    <style>
+        body {
+            overflow:hidden;
+            padding:0px;
+            margin:0px;
+        }
+        canvas {
+            margin:auto;
+            padding:0px;
+            margin:0px;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        //get reference of ScenesManager;
+        var scenesManager = tuto.Ezelia.ScenesManager;
+
+        //note the scale parameter is set to true
+        scenesManager.create(320, 480);
+
+        //create a the game scene
+        var game = scenesManager.createScene('game', tuto.Ezelia.GameScene);
+        var intro = scenesManager.createScene('intro', tuto.Ezelia.IntroScene);
+        var menu = scenesManager.createScene('menu', tuto.Ezelia.MenuScene);
+
+        scenesManager.goToScene('intro');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8" />
+ <meta name="format-detection" content="telephone=no" />
+ <!-- WARNING: for iOS 7, remove the width=device-width and
+height=device-height attributes. See https://issues.apache.org/jira/browse/
+CB-4323 -->
+ <meta name="viewport" content="user-scalable=no, initial-scale=1,
+maximum-scale=1, minimum-scale=1, width=device-width, height=device-height,
+target-densitydpi=device-dpi" />
+
+ <title>Etch-A-Sketch</title>
+
+ <style type='text/css'>
+ body { font-family: "Open Sans", sans-serif; color: #444; }
+ h1, h2, h3, h4 { font-family: Yellowtail; font-weight: normal; color:
+#06a; }
+ #wrapper { width: 800px; margin: 0 auto; }
+ header { text-align: center; }
+ header h1 { font-size: 46px; text-align: center; margin: 15px 10px; }
+ article h1 { font-size: 26px; margin: 0 0 15px; }
+ article canvas {
+ width: 800px;
+ height: 300px;
+ border: 1px solid #ccc;
+ }
+ pre.source {
+ background: #e5eeee;
+ padding: 10px 20px;
+ width: 760px;
+ overflow-x: auto;
+ border: 1px solid #acc;
+ }
+ code { background: #cff; }
+ .tools { margin-bottom: 10px; }
+ .center a {
+ border: 1px solid black; height: 30px; line-height: 30px; padding: 0
+10px; vertical-align: middle; text-align: center; text-decoration: none;
+display: inline-block; color: black; font-weight: bold;
+ }
+
+ .center {
+ margin:0 auto;
+ width:450px;
+ text-align:center;
+ }
+ </style>
+
+
+ </head>
+ <body>
+ <div class='demo' id='colors_demo'>
+ <div class="tools center">
+
+ 	 	 	
+</div>
+<canvas id="colors_sketch" width="800" height="300"></canvas>
+<div class="center">
+ <a href="#colors_sketch" data-tool="marker">Draw</a>
+ <a href="#colors_sketch" data-tool="eraser">Erase</a>
+ <a href="" data-tool="eraser">Clear</a>
+</div>
+</div>
+
+
+
+ <script type="text/javascript" src="js/cordova.js"></script>
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript" src="js/sketch.js"></script>
+ 
+
+
+<script type="text/javascript">
+ $(function() {
+ $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'],
+function() {
+ $('#colors_demo .tools').append("<a href='#colors_sketch' data-color='" +
+this + "' style='width: 10px; background: " + this + ";'></a> ");
+ });
+ $.each([3, 5, 10, 15], function() {
+ $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" +
+this + "' style='background: #ccc'>" + this + "</a> ");
+ });
+ $('#colors_sketch').sketch();
+
+ document.getElementById("colors_sketch").height=$(window).height()-100;
+
+ document.getElementById("colors_sketch").width=$(window).width();
+ });
+</script>
+
+ </body>
+</html>
