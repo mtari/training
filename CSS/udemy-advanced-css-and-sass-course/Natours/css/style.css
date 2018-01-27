@@ -6,3 +6,209 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* RESET */
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; /* = 10px; because default is set to 16px */
+}
+
+body {
+    /* The padding and margin is not calculated in the full size of containers and boxes */
+    box-sizing: border-box;
+
+    color: #777;    
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 3rem;
+}
+
+.header {
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url('../img/hero.jpg');
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+    position: relative;
+}
+
+.header__logo-box {
+    left: 4rem;    
+    position: absolute;
+    top: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.header__text-box {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    /* Sometimes the animation is shaky, this is a fix for that */
+    backface-visibility: hidden;
+
+    color: #fff;
+    margin-bottom: 6rem;    
+    text-transform: uppercase;
+}
+
+.heading-primary--main {
+    /* Animating component using keyframes */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* Uses 100% of the width, also adds a line-break before and after */
+    display: block;
+
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+}
+
+.heading-primary--sub {
+    /* Animating component using keyframes */
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* Uses 100% of the width, also adds a line-break before and after */
+    display: block;
+
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    border-radius: 10rem;
+
+    /* Figure out why this is useful */
+    display: inline-block;
+
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .2s;
+}
+
+.btn:hover {
+    /* Adding shadow */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+
+    transform: translateY(-0.3rem);
+}
+
+.btn:active {
+    /* Adding shadow */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2);
+
+    transform: translateY(-0.1rem);
+}
+
+.btn--white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    border-radius: 10rem;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    /* Want it to be behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    /* 
+    Animate all properies for this. This is required here in the initial 
+    state, so the properties can be animated when changed. btn:hover::after 
+    need this in order to do the scale animation.
+    */
+    transition: all .4s;
+}
+
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    opacity: 0;    
+    transform: scaleX(1.4) scaleY(1.6);
+}
+
+.btn--animated {
+    animation: moveInBottom 1s ease-out .75s;
+
+    /* 
+    During delay the button is visible and then it starts the animation. 
+    With this the 0% keyframe properties are applyied to the element.
+    */
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
